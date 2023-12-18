@@ -5,8 +5,3 @@ spring:
     name: jianli-service-ucenter
   profiles:
     active: dev
-#  redis:
-#    host: 192.168.171.133
-#    port: 6379
-#    database: 0
-#    timeout: 1800000

@@ -1,0 +1,7 @@
+server:
+  port: 8007
+spring:
+  application:
+    name: jianli-service-shoppingCart
+  profiles:
+    active: dev

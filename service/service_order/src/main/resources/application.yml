@@ -1,0 +1,7 @@
+server:
+  port: 8009
+spring:
+  application:
+    name: jianli-service-order
+  profiles:
+    active: dev

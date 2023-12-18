@@ -1,0 +1,7 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: jianli-service-pay
+  profiles:
+    active: dev

@@ -24,6 +24,11 @@ public class GatewayRouterConfig {
     public static final String JIANLI_SERVICE_BUILD = "jianli-service-build";
     public static final String JIANLI_SERVICE_GOODS = "jianli-service-goods";
     public static final String JIANLI_SERVICE_IOT = "jianli-service-iot";
+    public static final String JIANLI_SERVICE_LOGISTICS = "jianli-service-logistics";
+    public static final String JIANLI_SERVICE_ORDER = "jianli-service-order";
+    public static final String JIANLI_SERVICE_PAY = "jianli-service-pay";
+    public static final String JIANLI_SERVICE_SHOPPING_CART = "jianli-service-shoppingCart";
+    public static final String JIANLI_SERVICE_SHOPPING_STACK = "jianli-service-stack";
 
     public static final String JIANLI_SERVICE_UCENTER = "jianli-service-ucenter";
 
@@ -39,15 +44,24 @@ public class GatewayRouterConfig {
             System.out.println("路由检测到线下dev配置，走线下网关");
             routesMap.put(JIANLI_SERVICE_BUILD, "http://127.0.0.1:8001/");
             routesMap.put(JIANLI_SERVICE_GOODS, "http://127.0.0.1:8002/");
+            routesMap.put(JIANLI_SERVICE_LOGISTICS, "http://127.0.0.1:8003/");
             routesMap.put(JIANLI_SERVICE_IOT, "http://127.0.0.1:8004/");
             routesMap.put(JIANLI_SERVICE_UCENTER, "http://127.0.0.1:8005/");
+            routesMap.put(JIANLI_SERVICE_ORDER, "http://127.0.0.1:8009/");
+            routesMap.put(JIANLI_SERVICE_PAY, "http://127.0.0.1:8008/");
+            routesMap.put(JIANLI_SERVICE_SHOPPING_CART, "http://127.0.0.1:8007/");
+            routesMap.put(JIANLI_SERVICE_SHOPPING_STACK, "http://127.0.0.1:8006/");
         } else {
             System.out.println("路由检测到线下配置，走线下网关");
             routesMap.put(JIANLI_SERVICE_BUILD, "http://127.0.0.1:8001/");
             routesMap.put(JIANLI_SERVICE_GOODS, "http://127.0.0.1:8002/");
+            routesMap.put(JIANLI_SERVICE_LOGISTICS, "http://127.0.0.1:8003/");
             routesMap.put(JIANLI_SERVICE_IOT, "http://127.0.0.1:8004/");
             routesMap.put(JIANLI_SERVICE_UCENTER, "http://127.0.0.1:8005/");
-
+            routesMap.put(JIANLI_SERVICE_ORDER, "http://127.0.0.1:8009/");
+            routesMap.put(JIANLI_SERVICE_PAY, "http://127.0.0.1:8008/");
+            routesMap.put(JIANLI_SERVICE_SHOPPING_CART, "http://127.0.0.1:8007/");
+            routesMap.put(JIANLI_SERVICE_SHOPPING_STACK, "http://127.0.0.1:8006/");
         }
 
         System.out.println("------- 配置路由结束 -------");
@@ -73,10 +87,35 @@ public class GatewayRouterConfig {
                         .filters(filter -> filter.stripPrefix(2))
                         .uri(routesMap.getOrDefault(JIANLI_SERVICE_IOT, "lb://jianli-service-iot")));
 
+        routes.route(JIANLI_SERVICE_GOODS, route ->
+                route.path("/api/logistics/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri(routesMap.getOrDefault(JIANLI_SERVICE_LOGISTICS, "lb://jianli-service-logistics")));
+
         routes.route(JIANLI_SERVICE_UCENTER, route ->
                 route.path("/api/ucenter/**")
                         .filters(filter -> filter.stripPrefix(2))
                         .uri(routesMap.getOrDefault(JIANLI_SERVICE_UCENTER, "lb://jianli-service-ucenter")));
+
+        routes.route(JIANLI_SERVICE_UCENTER, route ->
+                route.path("/api/order/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri(routesMap.getOrDefault(JIANLI_SERVICE_ORDER, "lb://jianli-service-order")));
+
+        routes.route(JIANLI_SERVICE_UCENTER, route ->
+                route.path("/api/pay/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri(routesMap.getOrDefault(JIANLI_SERVICE_ORDER, "lb://jianli-service-pay")));
+
+        routes.route(JIANLI_SERVICE_UCENTER, route ->
+                route.path("/api/shoppingCart/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri(routesMap.getOrDefault(JIANLI_SERVICE_SHOPPING_CART, "lb://jianli-service-shoppingCart")));
+
+        routes.route(JIANLI_SERVICE_UCENTER, route ->
+                route.path("/api/stack/**")
+                        .filters(filter -> filter.stripPrefix(2))
+                        .uri(routesMap.getOrDefault(JIANLI_SERVICE_SHOPPING_CART, "lb://jianli-service-stack")));
 
         return routes;
     }

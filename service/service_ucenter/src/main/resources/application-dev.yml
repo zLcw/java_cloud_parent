@@ -19,22 +19,22 @@ spring:
         #最大阻塞等待时间(负数表示没限制)
         max-idle: 5
         min-idle: 0
-    # nacaos
-    cloud:
-      nacos:
-        discovery:
-          username: nacos
-          password: nacos
-          server-addr: 127.0.0.1:8848
-          namespace: 2200cc0d-7d2f-4fab-9d2e-b282cae54c62
+  # nacaos
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        server-addr: 127.0.0.1:8848
+        namespace: 2200cc0d-7d2f-4fab-9d2e-b282cae54c62
 
-    #返回json的全局时间格式
-    jackson:
-      time-zone: GMT+8
-      date-format: yyyy-MM-dd  HH:mm:ss
+  #返回json的全局时间格式
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd  HH:mm:ss
     #配置mapper xml文件的路径
-  mybatis-plus:
-    mapper-locations: classpath:mapper/**.xml
-    #mybatis日志
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus:
+  mapper-locations: classpath:mapper/**.xml
+  #mybatis日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
