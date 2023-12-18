@@ -1,0 +1,12 @@
+# 应用服务WEB访问端口
+server:
+  port: 8333
+  servlet:
+    context-path: "/"
+spring:
+  application:
+    name: sixing-jianli-gateway # 应用名称
+  profiles:
+    active: dev
+  main:
+    web-application-type: reactive

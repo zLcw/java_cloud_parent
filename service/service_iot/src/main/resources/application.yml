@@ -1,0 +1,7 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: jianli-service-iot
+  profiles:
+    active: dev

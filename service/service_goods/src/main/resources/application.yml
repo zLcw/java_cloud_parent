@@ -1,0 +1,12 @@
+# 服务端口
+server:
+  port: 8002
+  servlet:
+    context-path: /
+
+# 服务名
+spring:
+  application:
+    name: jianli-service-goods
+  profiles:
+    active: dev
