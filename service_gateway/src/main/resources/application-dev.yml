@@ -28,24 +28,24 @@ spring:
         server-addr: 127.0.0.1:8848
         namespace: 2200cc0d-7d2f-4fab-9d2e-b282cae54c62
 
-    # gateway 配置
-    gateway:
-      discovery:
-        locator:
-          enabled: true #使用服务发现路由（开启从注册中心动态创建路由的功能，利用微服务名进行路由)
-      globalcors:
-        # 全局允许跨域访问
-        cors-configurations:
-          '[/**]':
-            allow-credentials: true
-            allowed-origins-pattern: "*"
-            allowed-headers: "*"
-            allowed-methods:
-              - OPTIONS
-              - GET
-              - POST
-              - PUT
-              - DELETE
+  # gateway 配置
+  gateway:
+    discovery:
+      locator:
+        enabled: true #使用服务发现路由（开启从注册中心动态创建路由的功能，利用微服务名进行路由)
+    globalcors:
+      # 全局允许跨域访问
+      cors-configurations:
+        '[/**]':
+          allow-credentials: true
+          allowed-origins-pattern: "*"
+          allowed-headers: "*"
+          allowed-methods:
+            - OPTIONS
+            - GET
+            - POST
+            - PUT
+            - DELETE
 #      routes:
 #        - id: jianli-service-goods
 #          uri: lb://jianli-service-goods
